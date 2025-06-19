@@ -3,7 +3,7 @@ export const detectFloor = async (imageFile: File): Promise<string> => {
   formData.append('image', imageFile);
 
   try {
-    const response = await fetch('https://visbackend-xctr.onrender.com/api/detect', {
+    const response = await fetch('https://visbackend-zjijwg.fly.dev/api/detect', {
       method: 'POST',
       body: formData,
     });
