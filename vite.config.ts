@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
     proxy: {
       '/api': {
-        target: 'https://visbackend-xctr.onrender.com',
+        target: 'https://visbackend-zjijwg.fly.dev',
         changeOrigin: true,
       },
     },
