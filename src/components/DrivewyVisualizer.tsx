@@ -197,7 +197,7 @@ export const DrivewyVisualizer = () => {
         const filename = maskToDelete.split('/').pop();
         if (filename) {
           console.log(`[CLEANUP] Deleting mask file from server: ${filename}`);
-          fetch(`https://visbackend.fly.dev//api/delete-mask`, {
+          fetch(`https://visbackend.fly.dev/api/delete-mask`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
