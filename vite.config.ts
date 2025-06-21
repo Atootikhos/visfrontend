@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
     proxy: {
       '/api': {
-        target: 'https://visbackend.fly.dev',
+        target: 'https://vis-worker-backend.atootikhos.workers.dev',
         changeOrigin: true,
       },
     },
