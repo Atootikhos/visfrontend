@@ -105,7 +105,7 @@ export const MobileCatalogSheet: React.FC<MobileCatalogSheetProps> = ({
                     <ChevronLeft className="w-4 h-4" />
                   </Button>
                 )}
-                <SheetTitle className="text-lg">
+                <SheetTitle className="text-lg mr-4">
                   {showFavoritesOnly
                     ? 'Favorite Materials'
                     : selectedCategory
@@ -115,7 +115,7 @@ export const MobileCatalogSheet: React.FC<MobileCatalogSheetProps> = ({
                 </SheetTitle>
               </div>
               
-              <div className="ml-auto flex items-center gap-2">
+              <div className="flex items-center gap-2">
                 <Button
                   variant="ghost"
                   size="sm"
@@ -217,7 +217,7 @@ export const MobileCatalogSheet: React.FC<MobileCatalogSheetProps> = ({
                         }`}
                       >
                         <div className={`relative bg-gray-100 ${viewMode === 'list' ? 'h-20' : ''}`}
-                             style={viewMode === 'grid' ? { paddingTop: '100%' } : {}}
+                             style={viewMode === 'grid' ? { paddingTop: '100% !important' } : {}}
                         >
                           <img
                             src={texture.url}
