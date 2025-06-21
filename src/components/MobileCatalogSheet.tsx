@@ -115,14 +115,16 @@ export const MobileCatalogSheet: React.FC<MobileCatalogSheetProps> = ({
                 </SheetTitle>
               </div>
               
-              <Button 
-                variant="ghost" 
-                size="sm"
-                onClick={handleToggleFavoritesFilter}
-                className={showFavoritesOnly ? 'text-red-500' : ''}
-              >
-                <Heart className={`w-4 h-4 ${showFavoritesOnly ? 'fill-current' : ''}`} />
-              </Button>
+              <div className="ml-auto">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleToggleFavoritesFilter}
+                  className={showFavoritesOnly ? 'text-red-500' : ''}
+                >
+                  <Heart className={`w-4 h-4 ${showFavoritesOnly ? 'fill-current' : ''}`} />
+                </Button>
+              </div>
             </div>
 
             {(selectedCategory || showFavoritesOnly) && (

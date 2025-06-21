@@ -56,11 +56,11 @@ export const TextureCatalog: React.FC<TextureCatalogProps> = ({ onTextureSelect 
                 : 'hover:shadow-xl'
             }`}
           >
-            <div className="aspect-square relative">
+            <div className="relative w-full" style={{ paddingTop: '100%' }}>
               <img
                 src={texture.url}
                 alt={texture.name}
-                className="w-full h-full object-cover"
+                className="absolute top-0 left-0 w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="absolute bottom-3 left-3 right-3 text-white opacity-0 group-hover:opacity-100 transition-opacity">
