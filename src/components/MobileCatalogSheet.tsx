@@ -98,24 +98,24 @@ export const MobileCatalogSheet: React.FC<MobileCatalogSheetProps> = ({
       <SheetContent side="bottom" className="h-[85vh] p-0">
         <div className="flex flex-col h-full">
           <SheetHeader className="p-4 border-b border-gray-200">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-2">
                 {(selectedCategory || showFavoritesOnly) && (
                   <Button variant="ghost" size="sm" onClick={handleBackToCategories}>
                     <ChevronLeft className="w-4 h-4" />
                   </Button>
                 )}
-                <SheetTitle className="text-lg mr-2">
-                  {showFavoritesOnly 
-                    ? 'Favorite Materials' 
-                    : selectedCategory 
-                      ? selectedCatalog?.name 
+                <SheetTitle className="text-lg">
+                  {showFavoritesOnly
+                    ? 'Favorite Materials'
+                    : selectedCategory
+                      ? selectedCatalog?.name
                       : 'Material Catalog'
                   }
                 </SheetTitle>
               </div>
               
-              <div className="ml-auto">
+              <div className="ml-auto flex items-center gap-2">
                 <Button
                   variant="ghost"
                   size="sm"
@@ -216,11 +216,13 @@ export const MobileCatalogSheet: React.FC<MobileCatalogSheetProps> = ({
                             : 'shadow-md'
                         }`}
                       >
-                        <div className={`relative bg-gray-100 ${viewMode === 'grid' ? 'aspect-square' : 'h-20'}`}>
+                        <div className={`relative bg-gray-100 ${viewMode === 'list' ? 'h-20' : ''}`}
+                             style={viewMode === 'grid' ? { paddingTop: '100%' } : {}}
+                        >
                           <img
                             src={texture.url}
                             alt={texture.name}
-                            className="w-full h-full object-cover"
+                            className={`object-cover ${viewMode === 'grid' ? 'absolute top-0 left-0 w-full h-full' : 'w-full h-full'}`}
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                           <div className={`absolute ${viewMode === 'grid' ? 'bottom-3 left-3 right-3' : 'inset-3 flex items-end'}`}>
