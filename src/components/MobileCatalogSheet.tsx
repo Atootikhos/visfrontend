@@ -105,7 +105,7 @@ export const MobileCatalogSheet: React.FC<MobileCatalogSheetProps> = ({
                     <ChevronLeft className="w-4 h-4" />
                   </Button>
                 )}
-                <SheetTitle className="text-lg">
+                <SheetTitle className="text-lg mr-2">
                   {showFavoritesOnly 
                     ? 'Favorite Materials' 
                     : selectedCategory 

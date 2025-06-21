@@ -235,11 +235,13 @@ export const DesktopCatalogSidebar: React.FC<DesktopCatalogSidebarProps> = ({
                         : 'shadow-md hover:shadow-lg'
                     }`}
                   >
-                    <div className={`relative bg-gray-100 ${viewMode === 'grid' ? 'aspect-square' : 'h-20'}`}>
+                    <div className={`relative bg-gray-100 ${viewMode === 'list' ? 'h-20' : ''}`}
+                         style={viewMode === 'grid' ? { paddingTop: '100%' } : {}}
+                    >
                       <img
                         src={texture.url}
                         alt={texture.name}
-                        className="w-full h-full object-cover"
+                        className={`object-cover ${viewMode === 'grid' ? 'absolute top-0 left-0 w-full h-full' : 'w-full h-full'}`}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                       <div className={`absolute ${viewMode === 'grid' ? 'bottom-3 left-3 right-3' : 'inset-3 flex items-end'}`}>
