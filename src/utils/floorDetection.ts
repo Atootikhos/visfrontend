@@ -3,18 +3,26 @@ export const detectFloor = async (imageFile: File): Promise<string> => {
   formData.append('image', imageFile);
 
   try {
-    const response = await fetch('http://localhost:3001/api/detect', {
+    const response = await fetch('https://vis-worker-backend.atootikhos.workers.dev/api/detect', {
       method: 'POST',
       body: formData,
     });
 
     if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.error || 'Failed to detect floor.');
+      // Try to parse error text, but fall back to status text if it fails
+      let errorText;
+      try {
+        errorText = await response.text();
+      } catch (e) {
+        errorText = response.statusText;
+      }
+      throw new Error(errorText || 'Failed to detect floor.');
     }
 
-    const result = await response.json();
-    return result.maskUrl;
+    // The worker returns the image blob directly
+    const imageBlob = await response.blob();
+    // Create a URL for the blob to be used in the application
+    return URL.createObjectURL(imageBlob);
   } catch (error) {
     console.error('Error detecting floor:', error);
     throw error;
