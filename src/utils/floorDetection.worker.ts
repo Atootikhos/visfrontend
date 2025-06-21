@@ -16,7 +16,17 @@ const applyTexture = async (
   const tempCtx = tempCanvas.getContext('2d') as OffscreenCanvasRenderingContext2D;
 
   // Step 1: Create a pattern from the texture image on the temp canvas
-  const pattern = tempCtx.createPattern(textureImage, 'repeat');
+  // Step 1: Create a scaled-up version of the texture to make it appear larger.
+  const scaleFactor = 4;
+  const scaledWidth = textureImage.width * scaleFactor;
+  const scaledHeight = textureImage.height * scaleFactor;
+
+  const scaledTextureCanvas = new OffscreenCanvas(scaledWidth, scaledHeight);
+  const scaledTextureCtx = scaledTextureCanvas.getContext('2d') as OffscreenCanvasRenderingContext2D;
+  scaledTextureCtx.drawImage(textureImage, 0, 0, scaledWidth, scaledHeight);
+
+  // Step 2: Create a pattern from the *scaled* texture image
+  const pattern = tempCtx.createPattern(scaledTextureCanvas, 'repeat');
   if (pattern) {
     tempCtx.fillStyle = pattern;
     tempCtx.fillRect(0, 0, width, height);
