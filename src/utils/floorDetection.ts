@@ -3,7 +3,7 @@ export const detectFloor = async (imageFile: File): Promise<string> => {
   formData.append('image', imageFile);
 
   try {
-    const response = await fetch('https://visbackend.fly.dev/api/detect', {
+    const response = await fetch('https://vis-worker-backend.atootikhos.workers.dev/api/detect', {
       method: 'POST',
       body: formData,
     });
